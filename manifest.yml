@@ -1,4 +1,0 @@
-applications:
-- name: batalha_silabica
-  memory: 256M
-  instances: 1
