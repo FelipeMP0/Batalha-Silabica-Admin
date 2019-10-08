@@ -13,6 +13,16 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+userSchema.statics.findByUsernameAndPassword =
+  async function(username, password) {
+    const user = await this.findOne({
+      username: username,
+      password: password,
+    });
+
+    return user;
+  };
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

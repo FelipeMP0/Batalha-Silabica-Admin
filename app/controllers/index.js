@@ -1,3 +1,7 @@
 module.exports.index = (server, req, res) => {
-  res.render('index');
+  if (req.session.authorized) {
+    res.render('category');
+  } else {
+    res.redirect('login');
+  }
 };
