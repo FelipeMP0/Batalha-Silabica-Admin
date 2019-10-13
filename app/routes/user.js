@@ -6,4 +6,12 @@ module.exports = (server) => {
   server.post('/register', (req, res) => {
     server.app.controllers.user.register(server, req, res);
   });
+
+  server.get('/login', (req, res) => {
+    server.app.controllers.user.login(server, req, res);
+  });
+
+  server.post('/authenticate', (req, res) => {
+    server.app.controllers.user.authenticate(server, req, res);
+  })
 };

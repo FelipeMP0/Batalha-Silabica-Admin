@@ -1,5 +1,13 @@
 module.exports = (server) => {
-  server.get('/category', (req, res) => {
-    server.app.controllers.category.category(server, req, res);
+  server.get('/categories', (req, res) => {
+    server.app.controllers.category.list(server, req, res);
+  });
+
+  server.get('/create-category', (req, res) => {
+    server.app.controllers.category.createForm(server, req, res);
+  });
+
+  server.post('/create-category', (req, res) => {
+    server.app.controllers.category.create(server, req, res);
   });
 };

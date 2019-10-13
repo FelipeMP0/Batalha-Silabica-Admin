@@ -1,7 +1,7 @@
 const difficultyLevels = Object.freeze({
-  EASY: Symbol('EASY'),
-  MEDIUM: Symbol('MEDIUM'),
-  HARD: Symbol('HARD'),
+  EASY: 'Fácil',
+  MEDIUM:'Médio',
+  HARD:'Difícil',
 });
 
 module.exports = difficultyLevels;
