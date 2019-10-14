@@ -14,6 +14,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script> 
+      $(document).ready(function() { 
+
+        $("#delete").click(function(event) { 
+          event.preventDefault(); 
+          window.location.href = '/delete-category/'+ event.target.value;
+        });  
+      }); 
+  </script> 
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -31,7 +40,14 @@
       <% if (list && list.length) { %>
         <ul class="list-group  list-group-hover">
           <% list.forEach((category) => { %>
-            <li class="list-group-item"><a class=" text-secondary" href="/categories/<%= category.id %>/words"><%= category.name %></a></li>
+            <li >
+              <a class="list-group-item" href="/categories/<%= category.id %>/words" >
+                <div class=" text-secondary" ><%= category.name %></div>
+                <div class="float-right">
+                  <button value='<%= category.id %>' id="delete" class="btn btn-danger btn-sm">Deletar</button>
+                </div>
+              </a>
+            </li>
           <% }) %>
         </ul>
       <% } %>

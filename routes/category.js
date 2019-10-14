@@ -10,4 +10,8 @@ module.exports = (server) => {
   server.post('/create-category', (req, res) => {
     server.controllers.category.create(server, req, res);
   });
+
+  server.get('/delete-category/:id', (req, res) => {
+    server.controllers.category.delete(server, req, res);
+  });
 };
