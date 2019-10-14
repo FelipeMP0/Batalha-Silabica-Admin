@@ -5,7 +5,7 @@ const {connectDb} = require('./app/models/dao/index');
 
 dotenv.config();
 
-const port = process.env.SERVER_PORT;
+const port = process.env.PORT;
 
 connectDb().then(async () => {
   app.listen(port, () => {
