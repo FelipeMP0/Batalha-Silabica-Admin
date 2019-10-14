@@ -9,9 +9,9 @@ dotenv.config();
 const app = express();
 
 app.set('view engine', 'ejs');
-app.set('views', './app/views');
+app.set('views', './views');
 
-app.use(express.static('./app/public'));
+app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSession({
   secret: process.env.SESSION_KEY,
@@ -20,9 +20,9 @@ app.use(expressSession({
 }));
 
 consign()
-    .include('app/routes')
-    .then('app/models/dao')
-    .then('app/controllers')
+    .include('routes')
+    .then('models/dao')
+    .then('controllers')
     .into(app);
 
 module.exports = app;

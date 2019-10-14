@@ -5,7 +5,7 @@ module.exports.list = async (server, req, res) => {
   if (req.session.authorized) {
     const categoryId = req.params.id;
 
-    const words = await server.app.models.dao.index.models.Word.find({
+    const words = await server.models.dao.index.models.Word.find({
       category: categoryId,
     });
 
@@ -46,7 +46,7 @@ module.exports.create = async (server, req, res) => {
         .toLowerCase();
 
     if (word === wordWithoutHyphen) {
-      const newWord = new server.app.models.dao.index.models.Word({
+      const newWord = new server.models.dao.index.models.Word({
         word: word,
         separatedBySyllables: wordSeparatedBySyllables,
         difficultyLevel: wordData.difficultyLevel,

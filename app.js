@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 const app = require('./config/server');
 
-const {connectDb} = require('./app/models/dao/index');
+const {connectDb} = require('./models/dao/index');
 
 dotenv.config();
 

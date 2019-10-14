@@ -7,7 +7,7 @@ module.exports.registration = (server, req, res) => {
 module.exports.register = (server, req, res) => {
   const userData = req.body;
 
-  const newUser = new server.app.models.dao.index.models.User({
+  const newUser = new server.models.dao.index.models.User({
     username: userData.username,
     password: crypto.createHash('md5').update(userData.password).digest('hex'),
     createdAt: new Date(),
@@ -29,7 +29,7 @@ module.exports.authenticate = async (server, req, res) => {
       .update(userData.password)
       .digest('hex');
 
-  const user = await server.app.models.dao.index.models.User
+  const user = await server.models.dao.index.models.User
       .findByUsernameAndPassword(userData.username, password);
 
   if (user) {    
