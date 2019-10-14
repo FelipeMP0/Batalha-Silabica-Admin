@@ -13,7 +13,12 @@ module.exports.register = (server, req, res) => {
     createdAt: new Date(),
   });
 
-  newUser.save();
+  const user = newUser.save();
+
+  if (user) {
+    req.session.authorized = true;
+    req.session.userId = user.id;
+  }
 
   res.redirect('categories');
 };
@@ -42,4 +47,10 @@ module.exports.authenticate = async (server, req, res) => {
   } else {
     res.render('login');
   }
+};
+
+module.exports.logout = (server, req, res) => {
+  req.session.destroy(function(err) {
+    res.redirect('login');
+  });
 };

@@ -9,29 +9,48 @@
         <title>Adicionar Palavra</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>Adicionar Palavra</h1>
+        <div class="container">
+            <div class="float-right">
+                    <button onclick="window.location.href = '/categories/<%= categoryId %>/words'" class="btn btn-secondary" type="submit">Voltar</button>     
+            </div>
+
+            <div>
+                <p class="text-primary" id="header">Nova Palavra</p>
+            </div>
         
-        <form action="/categories/<%= categoryId %>/create-word" method="POST">
-            <label for="word">Palavra</label>
-            <input type="text" value="" id="word" name="word" placeholder="Palavra" />
+            <form action="/categories/<%= categoryId %>/create-word" method="POST">
+                <div class="form-group">
+                    <label for="word" class="text-secondary">Palavra</label>
+                    <input class="form-control form-control-lg" type="text" value="" id="word" name="word" placeholder="exemplo" />
+                </div>
 
-            <label for="separatedBySyllables">Separado por sílabas</label>
-            <input type="text" value="" id="separatedBySyllables" name="separatedBySyllables" placeholder="Pa-la-vra" />
+                <div class="form-group">
+                    <label for="separatedBySyllables" class="text-secondary">Separado por sílabas</label>
+                    <input class="form-control form-control-lg" type="text" value="" id="separatedBySyllables" name="separatedBySyllables" placeholder="e-xem-plo" />
+                </div>
 
-            <select id="difficultyLevel" name="difficultyLevel">
-                <% Object.keys(difficultyLevels).forEach(function(item){ %>
-                    <option value="<%= item %>"><%= difficultyLevels[item] %></option>
-                <% }) %>
-            </select>
-            
-            <button type="submit">Adicionar</button>
-        </form>
+                <div class="form-group">
+                    <label for="difficultyLevel" class="text-secondary">Dificuldade</label>
+                    <select class="form-control form-control-lg" id="difficultyLevel" name="difficultyLevel">
+                        <% Object.keys(difficultyLevels).forEach(function(item){ %>
+                            <option value="<%= item %>"><%= difficultyLevels[item] %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Adicionar</button>
+            </form>
+        </div>
 
         <script src="" async defer></script>
     </body>

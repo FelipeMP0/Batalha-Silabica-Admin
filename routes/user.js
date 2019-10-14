@@ -13,5 +13,9 @@ module.exports = (server) => {
 
   server.post('/authenticate', (req, res) => {
     server.controllers.user.authenticate(server, req, res);
-  })
+  });
+
+  server.get('/logout', (req, res) => {
+    server.controllers.user.logout(server, req, res);
+  });
 };

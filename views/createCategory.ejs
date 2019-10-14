@@ -9,21 +9,32 @@
         <title>Criar Categoria</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>Criar Categoria</h1>
+        <div class="container">
+            <div class="float-right">
+                    <button onclick="window.location.href = '/categories'" class="btn btn-secondary" type="submit">Voltar</button>     
+            </div>
 
-        <form action="/create-category" method="POST">
-            <label for="name">Categoria</label>
-            <input type="text" value="" id="name" name="name" placeholder="Nome da Categoria" />
+            <div>
+                <p class="text-primary" id="header">Nova Categoria</p>
+            </div>
+
+            <form action="/create-category" method="POST">
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" value="" id="name" name="name" placeholder="Nome da Categoria" />
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Adicionar</button>
+            </form>
             
-            <button type="submit">Adicionar</button>
-        </form>
-        
-        <script src="" async defer></script>
+        </div>
     </body>
 </html>

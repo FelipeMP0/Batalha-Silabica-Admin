@@ -9,24 +9,33 @@
         <title>Lista de Palavras</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>Lista de Palavras</h1>
-        
-        <% if (list && list.length) { %>
-        <ul>
-            <% list.forEach((word) => { %>
-            <li><%= word.word %> Dificuldade: <%= word.difficultyLevel%></li>
-            <% }) %>
-        </ul>
-        <% } %>
+        <div class="container">
+            <div class="float-right">
+                <button onclick="window.location.href = '/categories'" class="btn btn-secondary" type="submit">Voltar</button>     
+            </div>
 
-        <button onclick="window.location.href = '/categories/<%= categoryId %>/create-word';">Adicionar Palavra</button>
+            <div>
+                <p class="text-primary" id="header">Palavras</p>
+            </div>
+            <% if (list && list.length) { %>
+            <ul class="list-group  list-group-hover">
+                <% list.forEach((word) => { %>
+                <li class="list-group-item"><a href="#" class="text-secondary"><%= word.word.toUpperCase() %> - Nível: <%= word.difficultyLevel%></a></li>
+                <% }) %>
+            </ul>
+            <% } %>
 
-        <script src="" async defer></script>
+            <button onclick="window.location.href = '/categories/<%= categoryId %>/create-word';" class="btn btn-primary btn-lg btn-block">Adicionar Palavra</button>
+        </div>
     </body>
 </html>
