@@ -4,7 +4,7 @@ const Category = require('../category');
 const Word = require('../word');
 
 const connectDb = () => {
-  return mongoose.connect(process.env.DATABASE_URL);
+  return mongoose.connect(process.env.MONGODB_URI);
 };
 
 const models = {User, Category, Word};
