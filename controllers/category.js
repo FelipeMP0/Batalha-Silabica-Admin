@@ -36,3 +36,15 @@ module.exports.create = (server, req, res) => {
     res.render('login');
   }
 };
+
+module.exports.delete = async (server, req, res) => {
+  if (req.session.userId && req.session.authorized) {
+    const categoryId = req.params.id;
+
+    await server.models.dao.index.models.Category.deleteOne({_id: categoryId});
+
+    res.redirect('../categories');
+  } else {
+    res.render('login');
+  }
+};
