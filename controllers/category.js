@@ -5,9 +5,10 @@ module.exports.list = async (server, req, res) => {
     categories = await server.models.dao.index.models.Category.find({
       user: req.session.userId,
     });
+    res.render('categoryList', {list: categories});
+  } else {
+    res.render('login');
   }
-
-  res.render('categoryList', {list: categories});
 };
 
 module.exports.createForm = (server, req, res) => {
