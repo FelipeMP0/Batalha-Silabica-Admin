@@ -41,7 +41,7 @@
                 <% list.forEach((word) => { %>
                 <li>
                     <a class="list-group-item" href="#" class="text-secondary">
-                        <div class="text-secondary" ><%= word.word.toUpperCase() %> - Nível: <%= word.difficultyLevel%></div>
+                        <div class="text-secondary" ><%= word.word.toUpperCase() %> / <%= word.separatedBySyllables.toUpperCase() %> - Nível: <%= word.difficultyLevel%></div>
                         <div class="float-right">
                             <button value='<%= word.id %>' id="delete" class="btn btn-danger btn-sm">Deletar</button>
                         </div>
