@@ -25,14 +25,18 @@
             </div>
 
             <div>
-                <p class="text-primary" id="header">Nova Categoria</p>
+                <p class="text-primary" id="header">Salvar Categoria</p>
             </div>
 
+            <% if (categoryId) { %>
+            <form action="/update-category/<%= categoryId %>" method="POST">
+            <% } else { %>
             <form action="/create-category" method="POST">
+            <% } %>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" value="" id="name" name="name" placeholder="Nome da Categoria" />
+                    <input class="form-control form-control-lg" type="text" value="<%= categoryName %>" id="name" name="name" placeholder="Nome da Categoria" />
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Adicionar</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Salvar</button>
             </form>
             
         </div>

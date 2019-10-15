@@ -11,7 +11,15 @@ module.exports = (server) => {
     server.controllers.category.create(server, req, res);
   });
 
-  server.post('/delete-category/:id', (req, res) => {
+  server.get('/update-category/:id', (req, res) => {
+    server.controllers.category.updateForm(server, req, res);
+  });
+
+  server.post('/update-category/:id', (req, res) => {
+    server.controllers.category.update(server, req, res);
+  });
+
+  server.get('/delete-category/:id', (req, res) => {
     server.controllers.category.delete(server, req, res);
   });
 };

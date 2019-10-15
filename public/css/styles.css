@@ -1,13 +1,23 @@
+li {
+    display: flex;
+}
+
+.list-group-item {
+    display: flex !important;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .list-group-hover .list-group-item:hover {
     background-color: #f5f5f5;
 }
 
-body {
-    font-family: "Poppins", sans-serif;
+.btn btn-danger btn-sm{
+    z-index: 1000000;
 }
 
-.container {
-    padding: 2%
+body {
+    font-family: "Poppins", sans-serif;
 }
 
 a {

@@ -64,3 +64,16 @@ module.exports.create = async (server, req, res) => {
     res.render('login');
   }
 };
+
+module.exports.delete = async (server, req, res) => {
+  if (req.session.authorized) {
+    const wordId = req.params.wordId;
+
+    await server.models.dao.index.models.Word.deleteOne({_id: wordId});
+
+    res.redirect('../words');
+    return;
+  } else {
+    res.render('login');
+  }
+};
