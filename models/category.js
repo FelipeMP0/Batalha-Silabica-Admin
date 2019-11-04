@@ -10,6 +10,13 @@ const categorySchema = new mongoose.Schema({
   createdAt: {
     type: Date,
   },
+}, {toJSON: {virtuals: true}});
+
+categorySchema.virtual('words', {
+  ref: 'Word',
+  localField: '_id',
+  foreignField: 'category',
+  justOne: false,
 });
 
 const Category = mongoose.model('Category', categorySchema);

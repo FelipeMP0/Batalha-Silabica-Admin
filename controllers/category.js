@@ -11,6 +11,22 @@ module.exports.list = async (server, req, res) => {
   }
 };
 
+module.exports.listForGame = async (server, req, res) => {
+  let categories =
+    await server.models.dao.index.models.Category.find({}, 'name')
+        .populate('words');
+
+  categories = categories.filter((category) => {
+    return category.words && category.words.length !== 0;
+  });
+
+  categories = categories.map((category) => {
+    return {_id: category._id, name: category.name};
+  });
+
+  res.status(200).send(categories);
+};
+
 module.exports.createForm = (server, req, res) => {
   if (req.session.authorized) {
     res.render('createCategory', {categoryId: null, categoryName: null});

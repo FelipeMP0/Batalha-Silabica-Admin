@@ -1,4 +1,3 @@
-const axios = require('axios');
 const difficultyLevels = require('../enums/difficultyLevel');
 
 module.exports.list = async (server, req, res) => {
@@ -17,6 +16,10 @@ module.exports.list = async (server, req, res) => {
   } else {
     res.render('login');
   }
+};
+
+module.exports.listForGame = async (server, req, res) => {
+  let words = await server.models.dao.index.models.Word.find({});
 };
 
 module.exports.createForm = (server, req, res) => {
